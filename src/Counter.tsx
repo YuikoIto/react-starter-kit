@@ -1,12 +1,20 @@
-import React from 'react';
+import React, { useState } from 'react';
 
-const Counter = () => {
-  const value = 0;
+const Counter: React.FC<{}> = () => {
+  const initialValue: number = 0;
+  const [value, setValue] = useState<number>(initialValue);
+
+  const increment = () => {
+    setValue(value + 1);
+  };
+  const decrement = () => {
+    setValue(value - 1);
+  };
   return (
     <div>
       <div>value:{value}</div>
-      <button>+1</button>
-      <button>-1</button>
+      <button onClick={increment}>+1</button>
+      <button onClick={decrement}>-1</button>
     </div>
   );
 };
